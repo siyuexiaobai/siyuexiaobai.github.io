@@ -1,2 +1,2 @@
-# siyuexiaobai.github.io
-学习笔记
+# 小白的学习笔记
+[OTA](./ota/ota.md)

@@ -18,12 +18,17 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "i2c.h"
+#include "spi.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "App_M24c02.h"
+#include "App_OTA.h"
+#include "App_W25q32.h"
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,8 +97,36 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
+  MX_I2C2_Init();
+  MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
 printf("[%s:%d] this is bootloader demo\r\n",__FILE__,__LINE__);
+
+#define EEPROM_TEST
+#ifdef EEPROM_TEST
+uint8_t eeprom_init_flag = 0;
+for(uint8_t i = 0; i < 10; i++){
+	if(App_M24C02_Init() == HAL_OK){
+			eeprom_init_flag = 1;
+			break;
+	}
+	HAL_Delay(100);
+}
+if(eeprom_init_flag){
+	printf("EEPROM Init success\r\n");
+}else{
+	printf("EEPROM Init fail\r\n");
+}
+#endif
+
+#define OTA_TEST
+#ifdef  OTA_TEST
+  APP_OTA_Init();
+#endif
+#define W25Q32_TEST
+#ifdef  W25Q32_TEST
+ App_W25q32_Init();
+#endif
   /* USER CODE END 2 */
 
   /* Infinite loop */

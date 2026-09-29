@@ -25,4 +25,5 @@ bootloader\stm32f1xx_hal_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ha
 bootloader\stm32f1xx_hal_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 bootloader\stm32f1xx_hal_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
 bootloader\stm32f1xx_hal_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+bootloader\stm32f1xx_hal_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 bootloader\stm32f1xx_hal_i2c.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
